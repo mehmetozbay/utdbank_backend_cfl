@@ -38,9 +38,9 @@ logging:
     org.hibernate: DEBUG
   
     
-prorent:
+utdbank:
   app:
-    jwtSecret: prorent
+    jwtSecret: utdbankutdbank
     #60*60*24*1000
     jwtExpirationMs: 86400000     
     
