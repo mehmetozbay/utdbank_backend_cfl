@@ -30,7 +30,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Table(name="tbl_user")
 @Entity
 public class User {
@@ -69,7 +68,7 @@ public class User {
 	@Column(length=14,nullable=false)
 	private String mobilePhoneNumber;
 	
-	@Pattern(regexp = "^(?!666|000|9\\\\d{2})\\\\d{3}-(?!00)\\\\d{2}-(?!0{4})\\\\d{4}$",
+	@Pattern(regexp = "^(\\d{3}-?\\d{2}-?\\d{4}|XXX-XX-XXXX)$",
             message = "Please provide valid SSN")
 	@Column(length=15,nullable=false)
 	private String SSN;
@@ -131,6 +130,8 @@ public class User {
 		}
 		return roleStr;
 	}
+
+	
 	
 	
 	
