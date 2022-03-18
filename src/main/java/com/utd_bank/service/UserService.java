@@ -48,8 +48,6 @@ public class UserService {
 				.orElseThrow(() -> new ResourceNotFoundException("Role Not Found"));
 
 		roles.add(role);
-		
-		
 		user.setRoles(roles);
 		userRepository.save(user);
 	}
