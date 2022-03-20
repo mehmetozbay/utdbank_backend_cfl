@@ -31,6 +31,8 @@ import lombok.Setter;
  *
  */
 public class UserDTO {
+	
+	private Long id;
 	@NotBlank(message="Please provide not blank firstName")
 	@NotNull(message="Please provide your firstName")
 	@Size(min=1,max=15,message="FirstName '${validatedValue}' must be between {min} and {max} chracters long")
