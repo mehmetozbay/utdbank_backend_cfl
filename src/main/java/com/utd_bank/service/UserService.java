@@ -29,7 +29,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private RoleRepository roleRepository;
+	private  RoleRepository roleRepository;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	private final static String USER_NO_FOUND_MSG = "user with id %d not found";
@@ -127,7 +127,7 @@ public class UserService {
 		userRepository.save(foundUser);
 	}
 
-	public Set<Role> addRoles(Set<String> userRoles) {
+	public  Set<Role> addRoles(Set<String> userRoles) {
 		Set<Role> roles = new HashSet<>();
 
 		if (userRoles == null) {
@@ -138,16 +138,16 @@ public class UserService {
 			userRoles.forEach(role -> {
 				switch (role) {
 				case "Manager":
-					Role adminRole = roleRepository.findByName(UserRole.ROLE_MANAGER)
+					Role managerRole = roleRepository.findByName(UserRole.ROLE_MANAGER)
 							.orElseThrow(() -> new RuntimeException("Error: Role not found"));
-					roles.add(adminRole);
+					roles.add(managerRole);
 
 					break;
 
 				case "Employee":
-					Role managerRole = roleRepository.findByName(UserRole.ROLE_EMPLOYEE)
+					Role employeeRole = roleRepository.findByName(UserRole.ROLE_EMPLOYEE)
 							.orElseThrow(() -> new RuntimeException("Error: Role not found"));
-					roles.add(managerRole);
+					roles.add(employeeRole);
 					break;
 
 				default:
