@@ -1,0 +1,1208 @@
+{
+	"info": {
+		"_postman_id": "8a64d7ff-0f7a-4d80-a1c4-5b0726045016",
+		"name": "UTDbank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "CreateMessage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"huseyin\",\r\n    \"subject\":\"hasan\",\r\n    \"body\":\"Bu benim ilk mesajim\",\r\n    \"email\":\"hasan@gmail.com\",\r\n    \"phoneNumber\":\"(555) 555 5555\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/bank/api/message",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllMessage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/bank/api/message",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMessageById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/bank/api/message/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReequestById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/bank/api/message/request?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message",
+								"request"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/bank/api/message/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMessage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"can\",\r\n    \"subject\":\"can\",\r\n    \"body\":\"Bu benim yeni mesajim\",\r\n    \"email\":\"hasan@gmail.com\",\r\n    \"phoneNumber\":\"(555) 555 5555\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/bank/api/message/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bank",
+								"api",
+								"message",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "visitor",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"ssn\": \"123-45-6788\",\r\n    \"firstName\": \"Omer\",\r\n    \"lastName\": \"Yildirim\",\r\n    \"email\": \"samet2@gmail.com\",\r\n    \"password\": \"emp0\",\r\n    \"address\": \"3279 Meadow Lane San Francisco California 94108\",\r\n    \"mobilePhoneNumber\": \"(707) 334-5497\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/bank/api/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"ssn\": \"123-45-6789\",\r\n    \"password\": \"admin0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/bank/api/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "manager/employee(restricted)",
+					"item": [
+						{
+							"name": "get All user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzcyNzMwLCJleHAiOjE2NDc0NTkxMzB9.EQGOehZ5Pbd9ogEpscX_gnhRwvX7olfcCDzb7Z9d-cnXMuoPp5vvc474JwkY6b05WNfjqukkpm2nf-aCrD5m3Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/bank/api/user/auth/all",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"auth",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Mjg1MjQ0LCJleHAiOjE2NDczNzE2NDR9.hYpdrEwzbvtzwbOnROnvqOr0YEtIpwHDhrLeh7Cu0tTemVNrDBr45I27YOZ_krQ3PO_dNCixlE4jJT0PWYx5xg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4ODAtMDgtODY4NiIsImlhdCI6MTY0MzMxNDUzMywiZXhwIjoxNjQzNDAwOTMzfQ.RofYNj8K21qBoNQsRADohJ488XDpzuy3DmPxkeaSg7gtRtcZm4pA1WqPnE-DozANQIdp1NzHrrrA51MfW1guhg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8081/bank/api/user/2/auth",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"2",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzYzNTk0LCJleHAiOjE2NDc0NDk5OTR9.CTw29bhY-RJnbUzeEEPSOnGSWLJRxVQZdVwk2gxB1ixqA4cGY-N6ah9LvIheJS-m6xeM4H0PZGxw9KeItJvH-g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/bank/api/user/search?firstname=Mariam&lastname=Lose&ssn=163-12-2163&email=mariam_employee",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"search"
+									],
+									"query": [
+										{
+											"key": "firstname",
+											"value": "Mariam"
+										},
+										{
+											"key": "lastname",
+											"value": "Lose"
+										},
+										{
+											"key": "ssn",
+											"value": "163-12-2163"
+										},
+										{
+											"key": "email",
+											"value": "mariam_employee"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete user by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzYzNTk0LCJleHAiOjE2NDc0NDk5OTR9.CTw29bhY-RJnbUzeEEPSOnGSWLJRxVQZdVwk2gxB1ixqA4cGY-N6ah9LvIheJS-m6xeM4H0PZGxw9KeItJvH-g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/bank/api/user/9/auth",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"9",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzYzNTk0LCJleHAiOjE2NDc0NDk5OTR9.CTw29bhY-RJnbUzeEEPSOnGSWLJRxVQZdVwk2gxB1ixqA4cGY-N6ah9LvIheJS-m6xeM4H0PZGxw9KeItJvH-g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Mehmet1\",\r\n    \"lastName\": \"Ozbay\",\r\n    \"email\": \"mehmet2@gmail.com\",\r\n    \"phoneNumber\": \"(707) 334-5497\",\r\n    \"address\": \"3279 Meadow Lane San Francisco California 94108\",\r\n    \"builtIn\": false,\r\n    \"roles\": [\r\n        \"Employee\",\r\n        \"Customer\",\r\n        \"Manager\"\r\n    ],\r\n    \"ssn\": \"123-45-6789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/user/2/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"2",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "customer, manager/employee(just for own)",
+					"item": [
+						{
+							"name": "get User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NDYyMjg5LCJleHAiOjE2NDc1NDg2ODl9.gribgZZb5G-TeLZ0rBKQtigto3phIAi5hW6WPb4S1dEiy4Oiyze-PksBpwXgfmueeDXNngyTmhr0KjWUdSRVLQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/bank/api/user",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzcyNzMwLCJleHAiOjE2NDc0NTkxMzB9.EQGOehZ5Pbd9ogEpscX_gnhRwvX7olfcCDzb7Z9d-cnXMuoPp5vvc474JwkY6b05WNfjqukkpm2nf-aCrD5m3Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Mehmet\",\r\n    \"lastName\": \"Ozbay\",\r\n    \"email\": \"mehmet2@gmail.com\",\r\n    \"phoneNumber\": \"(707) 334-5497\",\r\n    \"address\": \"3279 Meadow Lane San Francisco California 94108\"\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/bank/api/user/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3MzcyNzMwLCJleHAiOjE2NDc0NTkxMzB9.EQGOehZ5Pbd9ogEpscX_gnhRwvX7olfcCDzb7Z9d-cnXMuoPp5vvc474JwkY6b05WNfjqukkpm2nf-aCrD5m3Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"emp0\",\r\n    \"newPassword\": \"admin0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/user/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"user",
+										"password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "customer, manager/employee(just for own)",
+					"item": [
+						{
+							"name": "create Account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"description\": \"save money\",\r\n    \"balance\": 6000,\r\n    \"currencyCode\": \"EUR\",\r\n    \"accountType\": \"SAVING\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Accounts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NjQzMjU5LCJleHAiOjE2NDc3Mjk2NTl9.flO_RG4x-V3XgPh75hMbys2ntn_yqfJpJHdgupxyi4_bOdXW2aSBgo4JCJxYj_sR5V39r41htHEXkVxrIu_XHg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete Account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NjQzMjU5LCJleHAiOjE2NDc3Mjk2NTl9.flO_RG4x-V3XgPh75hMbys2ntn_yqfJpJHdgupxyi4_bOdXW2aSBgo4JCJxYj_sR5V39r41htHEXkVxrIu_XHg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/500000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"500000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update Account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NjQzMjU5LCJleHAiOjE2NDc3Mjk2NTl9.flO_RG4x-V3XgPh75hMbys2ntn_yqfJpJHdgupxyi4_bOdXW2aSBgo4JCJxYj_sR5V39r41htHEXkVxrIu_XHg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n\r\n    \"description\": \"save2 money\",\r\n    \"currencyCode\": \"EUR\",\r\n    \"accountType\": \"SAVING\",\r\n    \"accountStatusType\": \"ACTIVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/500101/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"500101",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "manager/employee(restricted)",
+					"item": [
+						{
+							"name": "create account by userId",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"description\": \"check\",\r\n    \"balance\": 2000,\r\n    \"currencyCode\": \"TRY\",\r\n    \"accountType\": \"CHECKING\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/4/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"4",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all accounts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/auth/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"auth",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get accounts by user id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/user/3/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"user",
+										"3",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get account by accountNo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/500201/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"500201",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete account by accountNo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/500101/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"500101",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update account by account id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"description\": \"save money\",\r\n    \"balance\": 18000,\r\n    \"currencyCode\": \"EUR\",\r\n    \"accountType\": \"SAVING\",\r\n    \"accountStatusType\": \"CLOSED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/account/500201/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"account",
+										"500201",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "transfers",
+			"item": [
+				{
+					"name": "customer, manager/employee(just for own)",
+					"item": [
+						{
+							"name": "create Transfer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3NzYxNTc2LCJleHAiOjE2NDc4NDc5NzZ9.LHSLyDYJUeJ8uT3JfLXeiHlUkJ8UdOJfOY6EkdqC9ZmuZY7csay0k6YCCk9YEF8xwmU3J8shBe9Jbmiseyk4-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fromAccountId\": 500302,\r\n    \"toAccountId\": 500301,\r\n    \"transactionAmount\": 20,\r\n    \"currencyCode\": \"EUR\",\r\n    \"description\": \"money transfer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Transfers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get transfer by transfer id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get transfers by accountNo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/500302/accountNo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"500302",
+										"accountNo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "manager/employee(restricted)",
+					"item": [
+						{
+							"name": "get All Transfers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/auth/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"auth",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get transfers by user Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/user/3/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"user",
+										"3",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Transfers by accountNo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/500301/accountNo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"500301",
+										"accountNo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get transfer by transfer id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjQ3Nzc0MTE2LCJleHAiOjE2NDc4NjA1MTZ9.OMhRK1LP0aAicY39cviUw58KOtfolkdN2eQVnvPDDco4DrIaATdcUkV7HWX97vrQ6FKZUmBiu6vdjRQglkE8SA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/bank/api/transfer/2/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"bank",
+										"api",
+										"transfer",
+										"2",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
