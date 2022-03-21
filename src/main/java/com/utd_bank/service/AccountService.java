@@ -161,7 +161,7 @@ public class AccountService {
 
 		Set<String> adminRoles = admin.getRoles();
 	
-		Set<String> userRoles = admin.getRoles();
+		Set<String> userRoles = user.getRoles();
 	
 		accModifyInformationRepository.save(accountModifyInformation);
 		account.setAccModInfId(accountModifyInformation);
@@ -201,7 +201,7 @@ public class AccountService {
 		User admin = userRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 		Set<String> adminRoles = admin.getRoles();
-		Set<String> userRoles = admin.getRoles();
+		Set<String> userRoles = user.getRoles();
 		if (adminRoles.contains("Manager") || userRoles.contains("Customer")) 
 			
 			return accountRepository.findAllByUserId(user);
@@ -228,7 +228,7 @@ public class AccountService {
 	                        account.getUserId())));
 
 	        Set<String> adminRoles = admin.getRoles();
-			Set<String> userRoles = admin.getRoles();
+			Set<String> userRoles = user.getRoles();
 			if (adminRoles.contains("Manager") || userRoles.contains("Customer")) 
 				     return account;
 
@@ -250,7 +250,7 @@ public class AccountService {
 	        User user = userRepository.findById(account.getUserId().getId()).orElseThrow(() ->
 	                new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, account.getUserId().getId())));
 	        Set<String> adminRoles = admin.getRoles();
-			Set<String> userRoles = admin.getRoles();
+			Set<String> userRoles = user.getRoles();
 			if (adminRoles.contains("Manager") ||adminRoles.contains("Employee") || userRoles.contains("Customer")) 
 			{
 	                accModifyInformationRepository.deleteById(account.getAccModInfId().getId());
@@ -274,7 +274,7 @@ public class AccountService {
 	                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG,
 	                        acc.getUserId().getId())));
 	        Set<String> adminRoles = admin.getRoles();
-			Set<String> userRoles = admin.getRoles();
+			Set<String> userRoles = user.getRoles();
 	        Timestamp closedDate = null;
 	        if (account.getAccountStatusType().equals(AccountStatusType.CLOSED))
 	            closedDate = accountModifyInformation.setDate();
